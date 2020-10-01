@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	<category>
+	    <pattern>HOW DO YOU MAKE *</pattern>
+	    <think> 
+            <set name = "food-name"> onigiri </set>
+        </think>
+	    <template>
+	        <srai>MAKING <star/> STEP 1</srai>
+	    </template>
+	</category>
+	
+<!-- Credit goes to Steve Worswick for the step-by-step system shown below -->
+<!-- https://medium.com/pandorabots-blog/aiml-masterclass-telling-a-story-492bbcc835b7 -->
+
+	<category>
+	    <pattern>RAMEN RECIPE</pattern>
+	    <template>
+	        Here's a recipe for (instant) ramen from NYT. Say "stop" for me to stop the recipe. Say
+	        anything else for me to continue the recipe.
+	        <think>
+	            <set name="line1">Bring 2 1/2 cups of water to a boil in a small saucepan.
+	            Add the noodles and cook for 2 minutes.
+	            Add the flavor packet, stir, and continue to cook for another 30 seconds.</set>
+	            <set name="line2">Remove the pan from the heat and carefully add the egg.
+	            Do not stir; pull the noodles over the egg and let sit for one minute to poach.</set>
+	            <set name="line3">Carefully transfer everything to a serving bowl, add the sesame seeds and mix.
+	            Place toppings and scallions on top if desired.</set>
+	            <set name="line4">END OF RECIPE</set>
+	            <set name="topic">TELLARECIPE</set>
+	        </think>
+	    </template>
+	</category>
+
+	<category>
+	    <pattern>ONIGIRI RECIPE</pattern>
+	    <template>
+	        Here's a recipe for onigiri from Japan Centre. Say "stop" for me to stop the recipe. Say
+	        anything else for me to continue the recipe.
+	        <think>
+	            <set name="line1">Begin by cooking the Japanese rice according to your favourite method.</set>
+	            <set name="line2">With a small amount of salt sprinkled on your hands, mould the rice into small balls or triangles approximately 8cm wide.</set>
+	            <set name="line3">Create a small well in the centre of the rice and put in your choice of ingredients. Then mould the rice with your hands around the well to cover your filling completely.</set>
+	            <set name="line4">Using a sheet of nori seaweed, wrap up your ball of rice.</set>
+	            <set name="line5">Sprinkle some sesame seeds or cut up shiso leaves to put on the rice for a little extra flavour (optional). Enjoy for a snack or during lunch.</set>
+	            <set name="line6">END OF RECIPE</set>
+	            <set name="topic">TELLARECIPE</set>
+	        </think>
+	    </template>
+	</category>
+	
+	<category>
+	    <pattern>GYOZA RECIPE</pattern>
+	    <template>
+	        Here's a recipe for gyoza from Tasty. Say "stop" for me to stop the recipe. Say
+	        anything else for me to continue the recipe.
+	        <think>
+	            <set name="line1">In a large bowl, combine the ground pork, cabbage, nira chives, shiitake, garlic, ginger, soy sauce, sesame oil, sake, salt, and black pepper. Mix well with your hands.</set>
+	            <set name="line2">Place a teaspoon of filling in the middle of a dumpling wrapper. Using your finger, lightly wet the half of the outer rim with water. Fold the wrapper in half. Using your fingertips, make pleats to seal the dumpling. Repeat with the remaining wrappers and filling.</set>
+	            <set name="line3">In a large nonstick frying pan, heat the sesame oil over medium heat. Add the 20-22 dumplings in a circle. Fry for 1-3 minutes.</set>
+	            <set name="line4">Combine the flour and the water in a small bowl or measuring cup. Pour into the pan and cover. Steam the dumplings until the water is mostly evapolated, 7-8 minutes. Remove the lid and continue cooking until the water is completely evaporated.</set>
+	            <set name="line5">Place a plate on top of gyoza. Flip the pan upside down while pressing the plate to invert the dumplings. Cook the remaining dumplings.</set>
+	            <set name="line6">END OF RECIPE</set>
+	            <set name="topic">TELLARECIPE</set>
+	        </think>
+	    </template>
+	</category>
+
+    <topic name="TELLARECIPE">
+    <category>
+    <pattern>_</pattern>
+    <template>
+    <think>
+        <set name="topic">QUITRECIPE</set>
+        <sr/>
+        <set name="topic">TELLARECIPE</set>
+        <condition name="recipecontinue">
+            <li value="NO"><set name="progress">QUIT</set></li>
+        </condition>
+        <condition name="progress">
+            <li value="1"><set name="recipeline"><get name="line1"/></set><set name="progress">2</set></li>
+            <li value="2"><set name="recipeline"><get name="line2"/></set><set name="progress">3</set></li>
+            <li value="3"><set name="recipeline"><get name="line3"/></set><set name="progress">4</set></li>
+            <li value="4"><set name="recipeline"><get name="line4"/></set><set name="progress">5</set></li>
+            <li value="5"><set name="recipeline"><get name="line5"/></set><set name="progress">6</set></li>
+            <li value="6"><set name="recipeline"><get name="line6"/></set><set name="progress">7</set></li>
+            <li value="7"><set name="recipeline"><get name="line7"/></set><set name="progress">8</set></li>
+            <li value="8"><set name="recipeline"><get name="line8"/></set><set name="progress">9</set></li>
+            <li value="9"><set name="recipeline"><get name="line9"/></set><set name="progress">10</set></li>
+            <li value="10"><set name="recipeline"><get name="line10"/></set><set name="progress">11</set></li>
+            <li value="QUIT"><set name="topic"></set><set name="recipecontinue">YES</set></li>
+            <li><set name="recipeline"><get name="line1"/></set><set name="progress">2</set></li>
+        </condition>
+        <condition name="recipeline">
+            <li value="END OF RECIPE">
+                <set name="recipeline">That's the end of the recipe.</set>
+                <set name="topic">unknown</set>
+                <set name="progress">1</set>
+                <set name="recipecontinue">YES</set>
+            </li>
+        </condition>
+    </think>
+    <condition name="progress">
+        <li value="QUIT">Ok. I'll stop the recipe here.<think><set name="progress">1</set></think></li>
+        <li><get name="recipeline"/></li>
+    </condition>
+    </template>
+    </category>
+    </topic>
+    
+    <topic name="QUITRECIPE">
+        <category ><pattern>STOP</pattern><template><set name="recipecontinue">NO</set></template></category>
+    </topic>
+
+	<category>
+	    <pattern>WHAT IS THE RECIPE FOR *</pattern>
+	    <template><srai><star/> RECIPE</srai></template>
+	</category>
+	
+	<category>
+	    <pattern>HOW DO YOU MAKE *</pattern>
+	    <template><srai><star/> RECIPE</srai></template>
+	</category>
+</aiml>

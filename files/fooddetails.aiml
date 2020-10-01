@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+<!-- WHAT IS questions-->
+    <category>
+        <pattern>WHAT IS RAMEN</pattern>
+        <template>
+            Ramen is a noodle soup dish.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS ONIGIRI</pattern>
+        <template>
+            Onigiri are rice balls.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS GYOZA</pattern>
+        <template>
+            Gyoza is a Japanese style of fried Chinese dumplings.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS TONKATSU</pattern>
+        <template>
+            Tonkatsu is a deep fried pork cutlet from Japan.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS SOONDUBU</pattern>
+        <template>
+            Soondubu is a spicy stew of tofu, meat, and vegetables from Korea.
+        </template>
+    </category>
+
+<!-- WHAT IS IN questions-->
+    <category>
+        <pattern>WHAT IS IN RAMEN</pattern>
+        <template>
+            Ramen consists of noodles made with kansui. The broth comes in many
+            regional varieties. My favorite is tonkotsu ramen from north Kyushu.
+            Usually, ramen has additional toppings like menma, chashu, and a
+            seasoned egg on top.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS IN ONIGIRI</pattern>
+        <template>
+            Fundamentally, onigiri is centered around rice. But you can also add
+            more flavorful ingredients like umeboshi, shiokara, or kakuni.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS IN GYOZA</pattern>
+        <template>
+            Gyoza is made of its wrapper and its filling, which typically consists
+            of pork, cabbage, and alliums.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS IN TONKATSU</pattern>
+        <template>
+            Tonkatsu is deep-fried pork, it's pretty simple.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS IN TONKATSU</pattern>
+        <template>
+            Soondubu is made of gochujang, tofu, cabbage, a dropped egg, and chef's
+            choice of other meats and vegetables.
+        </template>
+    </category>
+
+<!-- WHAT IS ingredient questions-->
+    <category>
+        <pattern>WHAT IS UMEBOSHI</pattern>
+        <template>
+            Umeboshi is a type of Japanese pickled plum.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS SHIOKARA</pattern>
+        <template>
+            Shiokara is a pungent, fermented product of fish/shellfish.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS KAKUNI</pattern>
+        <template>
+            Kakuni is a flavorful dish of braised pork belly.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT ARE ALLIUMS</pattern>
+        <template>
+            Alliums are plants in the family containing garlic, onions, and shallots.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS GOCHUJANG</pattern>
+        <template>
+            Gochujang is a spicy Korean pepper paste.
+        </template>
+    </category>
+
+<!-- WHY DO YOU LIKE questions-->
+    <category>
+        <pattern>WHY DO YOU LIKE ONIGIRI</pattern>
+        <template>
+            It's simple to make, but brings out the full deep flavor of the rice.
+            Adding fillings is a great way to add a short burst of umami or salty
+            flavor as well.
+        </template>
+    </category>
+
+<!-- SRAIs and Unhappies-->
+    <category>
+        <pattern>WHAT IS *</pattern>
+        <template>
+            I don't think I need to explain that.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT GOES INTO *</pattern>
+        <template>
+            <srai>WHAT IS IN <star/></srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>^ NOT SURE WHAT * IS</pattern>
+        <template>
+            <srai>WHAT IS <star index="2"/></srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT INGREDIENTS * IN *</pattern>
+        <template><srai>WHAT IS IN <star index="2"/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>WHAT INGREDIENTS * INTO *</pattern>
+        <template><srai>WHAT IS IN <star index="2"/></srai></template>
+    </category>
+</aiml>

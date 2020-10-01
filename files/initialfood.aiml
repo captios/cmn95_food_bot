@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <category>
+        <pattern>* FAVORITE FOODS ^</pattern>
+        <template>
+            I like ramen, onigiri, gyoza, tonkatsu, and soondubu.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>* LEAST FAVORITE FOODS ^</pattern>
+        <template>
+            I'm pretty partial to everything!
+        </template>
+    </category>
+    
+    <category>
+        <pattern>^ NOT SURE WHAT * ARE</pattern>
+        <template>
+            I can explain them all! Please ask me about them one at a time.
+        </template>
+    </category>
+</aiml>
