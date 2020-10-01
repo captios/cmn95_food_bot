@@ -65,6 +65,38 @@
 	        </think>
 	    </template>
 	</category>
+	
+	<category>
+	    <pattern>GYOZA RECIPE</pattern>
+	    <template>
+	        Here's a recipe for Tonkatsu from Food Network. Say "stop" for me to stop the recipe. Say
+	        anything else for me to continue the recipe.
+	        <think>
+	            <set name="line1">Slash the fat rimming one side of the loin cutlet to keep the meat from curling when deepfried. Pound to flatten to about 1/4 inch. Salt and pepper both sides of each cutlet. Dredge each in flour, then dip into beaten eggs and press into bread crumbs to coat both sides.</set>
+	            <set name="line2">Heat a large skillet with about 1/2 inch of oil until hot. Lay 1 or 2 cutlets in the hot oil. Deep-fry until golden brown, about 5 to 7 minutes, turning them once or twice. Drain the cutlets on paper towels and cut the pork into bite-size strips that can be eaten with chopsticks. </set>
+	            <set name="line3">Arrange the pork on a platter lined with the shredded cabbage, and garnish with lemon wedges. Serve the sauce on the side for dipping, or pour it over the pork and cabbage.</set>
+	            <set name="line4">END OF RECIPE</set>
+	            <set name="topic">TELLARECIPE</set>
+	        </think>
+	    </template>
+	</category>
+	
+	<category>
+	    <pattern>SOONDUBU RECIPE</pattern>
+	    <template>
+	        Here's a recipe for soondubu from Spruce Eats. Say "stop" for me to stop the recipe. Say
+	        anything else for me to continue the recipe.
+	        <think>
+	            <set name="line1">In a soup pot, stir-fry the beef, garlic, and gochugaru in the sesame oil for about five minutes.</set>
+	            <set name="line2">Add anchovy or beef stock or water and soy sauce to the pot. Bring to a simmer.</set>
+	            <set name="line3">Add soft tofu and return to simmer.</set>
+	            <set name="line4">Add clams and simmer until the clams are cooked, about 10 minutes, until they shrink, or until the shells open (if using unshucked).</set>
+	            <set name="line5">Add scallions and take off heat.</set>
+	            <set name="line6">END OF RECIPE</set>
+	            <set name="topic">TELLARECIPE</set>
+	        </think>
+	    </template>
+	</category>
 
     <topic name="TELLARECIPE">
     <category>
